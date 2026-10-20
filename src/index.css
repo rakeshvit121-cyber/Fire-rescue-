@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Fredoka', 'Nunito', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: #0b0f17;
+  }
+}
+
+/* Dark Textured Stone Dungeon Background */
+.bg-stone-dungeon {
+  background-color: #0d111a;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.45) 0%, rgba(11, 15, 23, 0.98) 100%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 36px 36px, 36px 36px;
+}
+
+/* Ancient Carved Stone Board Slab */
+.stone-board-slab {
+  background: radial-gradient(circle at 50% 45%, #1e293b 0%, #0f172a 70%, #090e17 100%);
+  box-shadow: 
+    inset 0 3px 10px rgba(0, 0, 0, 0.85),
+    inset 0 -2px 6px rgba(255, 255, 255, 0.05),
+    0 16px 36px -8px rgba(0, 0, 0, 0.9),
+    0 0 0 2px #334155,
+    0 0 0 4px #1a2233;
+}
+
+/* Inset Carved Stone Cell Recess */
+.stone-cell-recess {
+  background: radial-gradient(circle at 50% 50%, #17202f 0%, #0c111b 100%);
+  box-shadow: 
+    inset 0 3px 6px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+@keyframes waterPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.8)) drop-shadow(0 0 10px rgba(14, 165, 233, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 1)) drop-shadow(0 0 18px rgba(56, 189, 248, 0.9));
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+  }
+  25% {
+    transform: scale(1.08, 0.95) rotate(2deg);
+  }
+  50% {
+    transform: scale(0.96, 1.05) rotate(-2deg);
+  }
+  75% {
+    transform: scale(1.04, 0.98) rotate(1deg);
+  }
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes waterDash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-flame {
+  animation: flameFlicker 0.4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.animate-water-glow {
+  animation: waterPulse 1.6s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatBob 3s ease-in-out infinite;
+}
+
+.water-flow-stream {
+  stroke-dasharray: 8 6;
+  animation: waterDash 0.8s linear infinite;
+}
+
+@keyframes sprayJetPulse {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scaleY(1.15) scaleX(0.92);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sprayDropletA {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-10px, -24px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes sprayDropletB {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(10px, -24px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes sprayDropletC {
+  0% {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -30px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.animate-spray-jet {
+  animation: sprayJetPulse 0.25s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.animate-spray-drop-a {
+  animation: sprayDropletA 0.45s ease-out infinite;
+}
+
+.animate-spray-drop-b {
+  animation: sprayDropletB 0.4s ease-out infinite 0.12s;
+}
+
+.animate-spray-drop-c {
+  animation: sprayDropletC 0.35s ease-out infinite 0.06s;
+}
+
+@keyframes pipeWiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-4deg) scale(0.97); }
+  40% { transform: rotate(4deg) scale(0.97); }
+  60% { transform: rotate(-3deg) scale(0.98); }
+  80% { transform: rotate(3deg) scale(0.99); }
+}
+
+.animate-wiggle {
+  animation: pipeWiggle 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Bright illuminated winning pipeline connection */
+.pipe-path-illuminated {
+  filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.9)) drop-shadow(0 0 20px rgba(2, 132, 199, 0.75));
+  z-index: 25;
+}
+
+/* Unused pipe dimmed to dark gray and slightly transparent upon success */
+.pipe-unused-disabled {
+  filter: grayscale(95%) brightness(35%);
+  opacity: 0.25;
+  pointer-events: none;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+

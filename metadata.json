@@ -1,0 +1,6 @@
+{
+  "name": "Pipe Rescue: Water Hero",
+  "description": "Connect water pipes in this mobile-friendly puzzle game to extinguish burning houses and revive thirsty trees across 30 exciting levels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

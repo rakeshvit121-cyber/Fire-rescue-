@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Rescue - DSA Project Presentation - RAKESH.S (25MIS0245)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    @media print {
+      body {
+        background-color: #0c131a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .slide-page {
+        page-break-after: always !important;
+        break-after: page !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 2.5rem !important;
+        box-sizing: border-box !important;
+      }
+    }
+    .slide-page {
+      width: 100%;
+      max-width: 1100px;
+      aspect-ratio: 16 / 9;
+      background-color: #0c131a;
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+      margin: 2rem auto;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #f1f5f9;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans p-4">
+
+  <!-- Print Action Bar -->
+  <div class="no-print max-w-5xl mx-auto mb-6 p-4 bg-slate-900 border border-slate-800 rounded-2xl flex items-center justify-between shadow-xl">
+    <div>
+      <h1 class="text-base font-bold text-white flex items-center gap-2">
+        <span>Fire Rescue — DSA Lab Presentation (14 Slides)</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono">RAKESH.S • 25MIS0245</span>
+      </h1>
+      <p class="text-xs text-slate-400">Click the button on the right or press Ctrl+P (Cmd+P) to Save as PDF in Landscape orientation.</p>
+    </div>
+    <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-lg transition-transform active:scale-95 cursor-pointer">
+      🖨️ Download / Print as PDF
+    </button>
+  </div>
+
+  <!-- SLIDE 1: Title Slide -->
+  <div class="slide-page">
+    <div class="text-xs tracking-widest text-emerald-400 font-bold uppercase">
+      DATA STRUCTURES AND ALGORITHMS
+    </div>
+    <div class="grid grid-cols-12 gap-8 my-auto items-center">
+      <div class="col-span-7 space-y-4">
+        <h1 class="text-5xl font-black text-white tracking-tight">Fire Rescue</h1>
+        <p class="text-lg text-slate-300 font-medium leading-relaxed">
+          A Grid-Based Pipe Puzzle Game Using BFS Graph Traversal and Hint Solver
+        </p>
+        <div class="pt-4 space-y-1.5 text-xs text-slate-400">
+          <p class="text-white font-semibold">Student: <span class="text-emerald-400 font-bold">RAKESH.S</span></p>
+          <p class="text-white font-semibold">Register No: <span class="text-emerald-400 font-mono font-bold">25MIS0245</span></p>
+          <p class="pt-2">Course: <strong class="text-slate-200">IASWE202 – Data Structures and Algorithms Lab</strong></p>
+          <p>School of Computer Science Engineering and Information Systems (SCORE)</p>
+          <p class="text-emerald-400 font-medium">VIT Vellore • Fall Semester 2026–2027</p>
+        </div>
+      </div>
+      <div class="col-span-5 flex flex-col items-center">
+        <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl">
+          <div class="grid grid-cols-4 gap-2 w-56 h-56 bg-slate-950 p-2.5 rounded-xl text-xs font-bold text-center">
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-300">S (In)</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">━</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">┓</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">┃</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">┗</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">╋</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">┃</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">┏</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">━</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">┏</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">┛</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">━</div>
+            <div class="bg-slate-800 rounded-lg flex items-center justify-center text-slate-600">┗</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">━</div>
+            <div class="bg-sky-500/20 border border-sky-400/60 rounded-lg flex items-center justify-center text-sky-400">━</div>
+            <div class="bg-orange-500/20 border border-orange-400/60 rounded-lg flex items-center justify-center text-orange-400">D (Fire)</div>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-2 font-mono">S: Source • ━ ┓ ┗: Connected Pipes • D: Destination</p>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 1</div>
+  </div>
+
+  <!-- SLIDE 2: Introduction -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Introduction: Fire Rescue</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 2</span>
+    </div>
+    <div class="space-y-4 my-auto">
+      <h2 class="text-3xl font-extrabold text-white">Project Overview & Algorithmic Foundation</h2>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 rounded-2xl bg-slate-900 border border-emerald-500/30 space-y-2">
+          <h3 class="text-sm font-bold text-emerald-400">Project Overview</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Fire Rescue is an interactive 100-level mobile-first pipe puzzle game. Players rotate modular pipe conduits (straight, elbow, tee, cross) on a 2D matrix to construct an unbroken water channel from an exterior supply inlet to quench burning buildings and revitalize thirsty trees.
+          </p>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900 border border-amber-500/30 space-y-2">
+          <h3 class="text-sm font-bold text-amber-400">Why Breadth-First Search (BFS)?</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Fluid wavefronts propagate outward in discrete waves along aligned conduit ports. BFS treats each cell as a graph vertex and each complementary port alignment as an unweighted edge, guaranteeing leak detection, fluid animation synchronization, and optimal hint calculation.
+          </p>
+        </div>
+      </div>
+      <div class="flex gap-2">
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-bold text-emerald-300">100 MISSIONS</span>
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-bold text-emerald-300">BFS GRAPH TRAVERSAL</span>
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-bold text-emerald-300">PORT BITMASK ENGINE</span>
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-bold text-emerald-300">STATE-SPACE SOLVER</span>
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-xs font-bold text-emerald-300">OFFLINE PWA</span>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
+        <div class="text-xs font-bold text-white mb-1">Project Aim</div>
+        <p class="text-xs text-slate-300">
+          Demonstrate how 2D arrays, graph port-matching, queue-based BFS, visited matrices, and backtracking state solvers solve fluid network flow and puzzle pathfinding inside an interactive, production-grade application.
+        </p>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 2</div>
+  </div>
+
+  <!-- SLIDE 3: Features -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Features of the Game</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 3</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Core Capabilities & Gameplay Mechanics</h2>
+      <div class="grid grid-cols-3 gap-3 text-xs">
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">100 Progressive Levels</div><p class="text-slate-400">Curated 4x4 up to 8x8 grids ramping from beginner tutorials to complex multi-junction networks.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Dual Rescue Themes</div><p class="text-slate-400">Fire Rescue (extinguishing ablaze buildings) and Tree Rescue (watering parched flora).</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Shared Pipe Engine</div><p class="text-slate-400">Single source of truth for flow physics, hint generation, validation, and victory checks.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">4 Modular Pipe Types</div><p class="text-slate-400">Straight, 90° elbow, 3-way T-junctions, and 4-way cross pipes with modular port masks.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Optimal Hint Solver</div><p class="text-slate-400">Breadth-first exploration that suggests legal rotations without breaking game rules.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Visual Water Wave Sync</div><p class="text-slate-400">Real-time BFS ripple animation guaranteeing water never crosses closed or mismatched joints.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Par Moves & Star Rating</div><p class="text-slate-400">Dynamic scoring rating players from 1 to 3 stars based on move efficiency and path elegance.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Synthesized Web Audio</div><p class="text-slate-400">Low-latency procedural audio engine with pipe ratchets, water rush, and fanfares.</p></div>
+        <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800"><div class="font-bold text-emerald-300 mb-1">Mobile PWA & WebAPK</div><p class="text-slate-400">Full-screen installability on Android and iOS with 100% offline gameplay.</p></div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 3</div>
+  </div>
+
+  <!-- SLIDE 4: Inspiration -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Existing Games / Inspiration</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 4</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Inspiration & Comparative Background</h2>
+      <div class="grid grid-cols-2 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="font-bold text-emerald-300 text-sm">Pipe Mania / Pipe Dream</div>
+          <div class="text-slate-400 mt-1">The original 1989 classic where players place random pipe segments before flooze reaches the end of the line.</div>
+          <div class="text-[10px] text-slate-500 mt-2 font-mono">Lucasfilm Games • 1989</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="font-bold text-amber-300 text-sm">Where's My Water?</div>
+          <div class="text-slate-400 mt-1">Physics-based fluid routing directing water into Swampy's shower while avoiding algae and acid.</div>
+          <div class="text-[10px] text-slate-500 mt-2 font-mono">Disney Mobile • 2011</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="font-bold text-sky-300 text-sm">Plumber Puzzle Series</div>
+          <div class="text-slate-400 mt-1">Grid tile rotation games requiring players to align conduit valves before the pressure timer expires.</div>
+          <div class="text-[10px] text-slate-500 mt-2 font-mono">Magma Mobile • 2014</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="font-bold text-rose-300 text-sm">Roll the Ball / Unblock</div>
+          <div class="text-slate-400 mt-1">Sliding conduit mechanics testing topological spatial reasoning and path visualization.</div>
+          <div class="text-[10px] text-slate-500 mt-2 font-mono">BitMango • 2015</div>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300">
+        These games provide inspiration for rotational mechanics and fluid theme. Fire Rescue makes the underlying BFS graph traversal visible, provably solvable via automated validation, and coupled with an optimal hint calculation engine.
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 4</div>
+  </div>
+
+  <!-- SLIDE 5: References -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Algorithm References</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 5</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Theoretical Foundation & Academic Literature</h2>
+      <div class="space-y-3">
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+          <div>
+            <div class="font-bold text-sm text-white">Introduction to Algorithms (CLRS)</div>
+            <div class="text-xs text-slate-400">Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein • MIT Press</div>
+            <div class="text-xs text-slate-300 mt-1">Foundational reference for graph representations (adjacency lists vs matrices), Breadth-First Search (BFS) properties, queue invariants, and shortest path proofs on unweighted graphs.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+          <div>
+            <div class="font-bold text-sm text-white">The Shortest Path Through a Maze</div>
+            <div class="text-xs text-slate-400">Edward F. Moore • Proceedings of the International Symposium on the Theory of Switching (1959)</div>
+            <div class="text-xs text-slate-300 mt-1">Seminal paper establishing the formal grid-based breadth-first shortest path search algorithm used directly in maze navigation and circuit trace routing.</div>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+          <div>
+            <div class="font-bold text-sm text-white">Depth-First Search and Linear Graph Algorithms</div>
+            <div class="text-xs text-slate-400">Robert Tarjan • SIAM Journal on Computing (1972)</div>
+            <div class="text-xs text-slate-300 mt-1">Reference for graph connectivity, biconnected components, and cycle detection, providing the foundation for our procedural maze and level generator.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 5</div>
+  </div>
+
+  <!-- SLIDE 6: Modifications 1 -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Modifications Done (1/2)</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 6</span>
+    </div>
+    <div class="my-auto space-y-3">
+      <h2 class="text-3xl font-extrabold text-white">Algorithmic & Structural Enhancements</h2>
+      <div class="space-y-2.5 text-xs">
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Glitched Water Flow: Water travelled through disconnected or misaligned pipe openings.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>Strict 4-Port Mutual Compatibility: Neighbor cells (r1, c1) and (r2, c2) only connect if port(d) and port(opposite(d)) are both open.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Misleading Hint Button: Hint pointed water into blocked ends or suggested illegal moves.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>State-Space BFS Solver: Explores legal rotational configurations to guarantee an optimal next rotation.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Trivial 30 Levels: Simple short direct pipelines with almost no decoy pipes.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>100 Scaled Levels: Progressive serpentine mazes from 4x4 up to 8x8 with decoy junctions and branching dead-ends.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Independent Physics & Display: Visual water flow desynchronized from win condition.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>Unified Pipe Engine: Single mathematical model evaluates flow, victory, animations, and hints.</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 6</div>
+  </div>
+
+  <!-- SLIDE 7: Modifications 2 -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Modifications Done (2/2)</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 7</span>
+    </div>
+    <div class="my-auto space-y-3">
+      <h2 class="text-3xl font-extrabold text-white">Performance, Audio & Experience Enhancements</h2>
+      <div class="space-y-2.5 text-xs">
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Arbitrary Move Limit: Star awards granted even on failed or disconnected routes.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>Rigorous Par Rating: 3 stars awarded only when valid continuous route is solved within par moves.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Harsh, Repetitive Sound: Audio clicks overlapped or failed browser autoplay policies.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>Web Audio API Synthesizer: Independent SFX/music volume controls, mute persistence, and zero overlap.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Web-Only Wrapper: Game required persistent connection and full browser address bar.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>PWA & WebAPK Native Support: 1-click home screen install, service worker offline caching, and full-screen layout.</div>
+        </div>
+        <div class="grid grid-cols-12 gap-3 p-3 rounded-xl bg-slate-900 border border-slate-800">
+          <div class="col-span-5 text-rose-300 font-medium"><span class="text-[10px] uppercase font-bold text-rose-400 block">Existing Flaw</span>Unverified Levels: Many puzzle boards were mathematically unsolvable.</div>
+          <div class="col-span-1 flex items-center justify-center text-slate-500 font-bold">→</div>
+          <div class="col-span-6 text-emerald-300 font-medium"><span class="text-[10px] uppercase font-bold text-emerald-400 block">Our Fire Rescue Engine</span>Automated Test Suite: Headless test runner verifies 100% of the 100 levels before production deployment.</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 7</div>
+  </div>
+
+  <!-- SLIDE 8: Differentiators -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">How We Differ from Each Reference</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 8</span>
+    </div>
+    <div class="my-auto space-y-4 text-xs">
+      <h2 class="text-3xl font-extrabold text-white">Key Architectural Differentiators</h2>
+      <div class="space-y-3">
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="font-bold text-sky-400 text-sm">Vs. Pipe Mania:</span>
+          <p class="text-slate-300 mt-1">Instead of dealing random falling pipe pieces that rely on luck, Fire Rescue provides a deterministic 2D topological graph where all pipe pieces are present from the start and must be rotated strategically.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="font-bold text-emerald-400 text-sm">Vs. Where's My Water?:</span>
+          <p class="text-slate-300 mt-1">Instead of non-deterministic particle physics simulation that varies across hardware, Fire Rescue uses discrete graph algorithms (BFS and state trees) that execute with exact O(R × C) predictability.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+          <span class="font-bold text-amber-400 text-sm">Vs. Commercial Mobile Plumber Games:</span>
+          <p class="text-slate-300 mt-1">Commercial games often fake water connections with hardcoded sprite animations. Fire Rescue computes real-time port compatibility bitmasks at runtime and exposes an explainable BFS search tree for hint generation.</p>
+        </div>
+      </div>
+      <div class="p-3.5 rounded-xl bg-emerald-950/50 border border-emerald-500/40 text-emerald-200">
+        <strong>Unique Academic Contribution:</strong> Unification of graph traversal (BFS) with bitwise port operations to achieve simultaneous fluid simulation, automated puzzle validation, and state-space hint resolution in sub-millisecond execution time.
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 8</div>
+  </div>
+
+  <!-- SLIDE 9: Data Structures -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Data Structures Used</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 9</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Core Data Structures & Computational Roles</h2>
+      <div class="overflow-hidden rounded-xl border border-slate-800 text-xs">
+        <table class="w-full text-left">
+          <thead class="bg-slate-950 text-emerald-400 uppercase font-mono text-[11px] border-b border-slate-800">
+            <tr>
+              <th class="py-3 px-4">Data Structure</th>
+              <th class="py-3 px-4">Implementation</th>
+              <th class="py-3 px-4">Functional Role in Fire Rescue</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 bg-slate-900/50 text-slate-300">
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">2D Grid Array</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">PipeCell[R][C]</td>
+              <td class="py-2.5 px-4">Stores tile position, pipe type, rotation (0–3), and port state.</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Port Bitmask (Graph Edges)</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">uint8 bitmask</td>
+              <td class="py-2.5 px-4">Encodes 4 cardinal directions (UP=1, RIGHT=2, DOWN=4, LEFT=8).</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Queue (FIFO)</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">Array/Ring Buffer</td>
+              <td class="py-2.5 px-4">Maintains frontier of water-filled cells during BFS wave expansion.</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Visited Matrix</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">boolean[R][C]</td>
+              <td class="py-2.5 px-4">Guarantees each tile is evaluated at most once; prevents infinite loops.</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">Parent Map</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">Map&lt;string, Coord&gt;</td>
+              <td class="py-2.5 px-4">Records predecessor node to reconstruct optimal shortest water pipeline.</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-4 font-bold text-white">State Vector</td>
+              <td class="py-2.5 px-4 font-mono text-emerald-300">number[]</td>
+              <td class="py-2.5 px-4">Encodes rotations for rapid state-space search during hint calculations.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 9</div>
+  </div>
+
+  <!-- SLIDE 10: Algorithm Flow -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Algorithm: Breadth-First Search (BFS)</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 10</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Step-by-Step BFS Execution Flow</h2>
+      <div class="grid grid-cols-3 gap-4 text-xs">
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">1</div>
+          <div class="font-bold text-white text-sm">Initialize Water Source</div>
+          <div class="text-slate-400">Identify inlet port at boundary. Mark source cell visited and enqueue with initial depth=0.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">2</div>
+          <div class="font-bold text-white text-sm">Dequeue Front Cell</div>
+          <div class="text-slate-400">Remove cell (r, c) from front of FIFO queue to simulate fluid wavefront propagation.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">3</div>
+          <div class="font-bold text-white text-sm">Inspect 4 Cardinal Ports</div>
+          <div class="text-slate-400">Calculate open ports of active pipe by rotating base openings clockwise by (rot × 90°).</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">4</div>
+          <div class="font-bold text-white text-sm">Check Mutual Alignment</div>
+          <div class="text-slate-400">For each neighbor in direction D, verify target pipe has an open port in OPPOSITE direction.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">5</div>
+          <div class="font-bold text-white text-sm">Enqueue & Record Parent</div>
+          <div class="text-slate-400">If neighbor is unvisited and mutually open, mark visited, record predecessor, and enqueue.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+          <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">6</div>
+          <div class="font-bold text-white text-sm">Check Destination & Finish</div>
+          <div class="text-slate-400">If active cell connects to destination inlet, trigger success fanfare and calculate par stars.</div>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 10</div>
+  </div>
+
+  <!-- SLIDE 11: BFS Pseudocode -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">BFS Pseudocode & Path Reconstruction</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 11</span>
+    </div>
+    <div class="my-auto space-y-3">
+      <h2 class="text-2xl font-extrabold text-white">BFS Flow Simulation & Hint Algorithm</h2>
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-8 p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-emerald-300 leading-tight">
+          <pre>function calculateWaterFlow(grid, source, destination):
+    queue = new Queue()
+    visited = new Matrix[R][C](false)
+    parent = new Map()
+
+    queue.enqueue(source.cell)
+    visited[source.r][source.c] = true
+
+    while not queue.isEmpty():
+        curr = queue.dequeue()
+        if curr == destination.cell and curr.hasPort(destination.inlet):
+            return { reached: true, path: reconstruct(parent, curr) }
+
+        for dir in [UP, RIGHT, DOWN, LEFT]:
+            neighbor = curr.getNeighbor(dir)
+            if neighbor and not visited[neighbor.r][neighbor.c]:
+                # Mutual port-matching verification
+                if curr.isOpen(dir) and neighbor.isOpen(opposite(dir)):
+                    visited[neighbor.r][neighbor.c] = true
+                    parent.set(neighbor, curr)
+                    queue.enqueue(neighbor)
+
+    return { reached: false, flowCells: visited }</pre>
+        </div>
+        <div class="col-span-4 space-y-3 text-xs">
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-emerald-400 text-sm mb-1">Search Phase</div>
+            <p class="text-slate-300">The queue systematically checks connected cells level-by-level. Because each edge represents a leak-free pipe connection, water never bypasses a closed port.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="font-bold text-amber-400 text-sm mb-1">Hint Generation</div>
+            <p class="text-slate-300">When no complete path exists, the solver rotates unaligned cells along the intended pipeline to identify the next rotation that advances flow toward the target.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 11</div>
+  </div>
+
+  <!-- SLIDE 12: Complexity -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Complexity and Why BFS</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 12</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Asymptotic Complexity Analysis</h2>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40">
+          <div class="text-xs text-emerald-400 uppercase font-mono">Time Complexity</div>
+          <div class="text-3xl font-black text-white font-mono my-2">O(V + E)</div>
+          <div class="text-xs text-slate-400">In an R × C grid, V = R × C vertices and E ≤ 4 × V edges. Each cell is visited at most once, giving <strong>O(R × C) linear time</strong>.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-sky-500/40">
+          <div class="text-xs text-sky-400 uppercase font-mono">Space Complexity</div>
+          <div class="text-3xl font-black text-white font-mono my-2">O(R × C)</div>
+          <div class="text-xs text-slate-400">The FIFO queue and visited boolean matrix store at most one record per cell. For our largest 8×8 grid, memory footprint is <strong>&lt; 5 KB</strong>.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-slate-900 border border-amber-500/40">
+          <div class="text-xs text-amber-400 uppercase font-mono">Hint Solver Search</div>
+          <div class="text-3xl font-black text-white font-mono my-2">O(K · (V+E))</div>
+          <div class="text-xs text-slate-400">K candidate pipe rotations along the solution path are tested in sequence, resolving the hint in <strong>&lt; 2 milliseconds</strong>.</div>
+        </div>
+      </div>
+      <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2 text-slate-300">
+        <div class="font-bold text-white text-sm">Why BFS Over DFS or Dijkstra?</div>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong>Uniform Edge Costs:</strong> Water advances 1 cell per step; BFS naturally computes the shortest route without Dijkstra's priority queue overhead.</li>
+          <li><strong>Visual Fidelity:</strong> BFS matches physical outward wave expansion, eliminating erratic jumping seen with DFS.</li>
+          <li><strong>Zero False Completions:</strong> BFS strictly terminates when all connected openings are exhausted or the target is attained.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 12</div>
+  </div>
+
+  <!-- SLIDE 13: Requirements -->
+  <div class="slide-page">
+    <div class="flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Software and Hardware Requirements</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 13</span>
+    </div>
+    <div class="my-auto space-y-4">
+      <h2 class="text-3xl font-extrabold text-white">Technical Stack & Operational Environment</h2>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+          <div class="font-bold text-sm text-emerald-400 uppercase tracking-wide">Software Stack</div>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• <strong>Framework:</strong> React 19 SPA with TypeScript</li>
+            <li>• <strong>Build Tool:</strong> Vite 8 with ES2022 Bundler</li>
+            <li>• <strong>Styling:</strong> Tailwind CSS with Responsive Viewport clamping</li>
+            <li>• <strong>Audio:</strong> Web Audio API procedural synthesis engine</li>
+            <li>• <strong>Storage:</strong> LocalStorage API for progress and star metrics</li>
+            <li>• <strong>PWA & Offline:</strong> Vite PWA Plugin & Service Worker (CacheFirst)</li>
+            <li>• <strong>Validation:</strong> Headless Automated Test Harness (TSX runner)</li>
+          </ul>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+          <div class="font-bold text-sm text-sky-400 uppercase tracking-wide">Hardware & Target Platforms</div>
+          <ul class="space-y-2 text-xs text-slate-300">
+            <li>• <strong>Mobile Phones:</strong> Android (Chrome/Edge/WebAPK) and iOS (Safari PWA)</li>
+            <li>• <strong>Desktop:</strong> Windows, macOS, Linux (Any Chromium/WebKit browser)</li>
+            <li>• <strong>RAM Requirement:</strong> 2 GB RAM minimum (sub-50MB runtime usage)</li>
+            <li>• <strong>Storage:</strong> Less than 10 MB total cached footprint</li>
+            <li>• <strong>Display:</strong> Responsive from 320px mobile screens up to 4K desktop</li>
+            <li>• <strong>Input:</strong> Touchscreen tap or mouse click rotation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 text-right">Page 13</div>
+  </div>
+
+  <!-- SLIDE 14: Summary & Thank You -->
+  <div class="slide-page text-center items-center">
+    <div class="w-full text-left flex justify-between text-xs text-slate-500 border-b border-slate-800 pb-2">
+      <span class="font-bold text-emerald-400">Summary & Conclusion</span>
+      <span class="font-mono">Fire Rescue | IASWE202 Data Structures and Algorithms Lab • 14</span>
+    </div>
+    <div class="my-auto max-w-2xl space-y-5">
+      <h2 class="text-4xl font-black text-white">Summary & Conclusions</h2>
+      <div class="space-y-2.5 text-xs text-slate-300 text-left bg-slate-900 p-5 rounded-2xl border border-slate-800">
+        <div>✓ Demonstrated practical application of Breadth-First Search (BFS) for fluid pipeline simulation and puzzle validation.</div>
+        <div>✓ Engineered a unified port bitmask model guaranteeing leak-free connectivity across all 100 progressive levels.</div>
+        <div>✓ Integrated an optimal hint generator exploring legal rotational state space without violating puzzle rules.</div>
+        <div>✓ Delivered a production-ready mobile PWA with synthesized audio, full-screen touch gameplay, and automated test coverage.</div>
+      </div>
+      <div class="pt-2">
+        <h3 class="text-3xl font-black text-emerald-400">Thank You!</h3>
+        <p class="text-xs text-slate-400 mt-1">Questions & Discussion</p>
+      </div>
+    </div>
+    <div class="text-xs text-slate-500 font-mono">
+      RAKESH.S • Reg No: 25MIS0245 • VIT Vellore (SCORE)
+    </div>
+  </div>
+
+</body>
+</html>
